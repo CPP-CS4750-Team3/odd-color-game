@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         //Start Screen -> Game
         val startGameButton = findViewById<Button>(R.id.startGame)
         startGameButton.setOnClickListener {
-            val startToGame = Intent(this, TestGameScreen::class.java)
+            val startToGame = Intent(this, GameScreen::class.java)
             startActivity(startToGame)
         }
     }

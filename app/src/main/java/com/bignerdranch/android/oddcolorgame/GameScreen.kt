@@ -3,9 +3,9 @@ package com.bignerdranch.android.oddcolorgame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class TestGameScreen : AppCompatActivity() {
+class GameScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_test_game_screen)
+        setContentView(R.layout.activity_game_screen)
     }
 }
