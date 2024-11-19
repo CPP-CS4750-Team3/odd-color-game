@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:drawable="@drawable/red_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/orange_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/yellow_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/gold_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/lime_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/green_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/cloudy_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/sky_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/blue_bg"
+        android:duration="5000"/>
+
+    <item
+        android:drawable="@drawable/purple_bg"
+        android:duration="5000"/>
+</animation-list>
