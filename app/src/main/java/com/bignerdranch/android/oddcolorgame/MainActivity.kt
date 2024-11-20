@@ -5,6 +5,7 @@ import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         bgAnimation.start()
 
         //Start Screen -> Game
-        val startGameButton = findViewById<Button>(R.id.startGame)
+        val startGameButton = findViewById<ImageButton>(R.id.play_button)
         startGameButton.setOnClickListener {
             val startToGame = Intent(this, GameScreen::class.java)
             startActivity(startToGame)

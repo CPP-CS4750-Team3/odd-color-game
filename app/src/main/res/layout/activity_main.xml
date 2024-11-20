@@ -8,24 +8,56 @@
     android:id="@+id/main_layout"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/startGame"
-        android:layout_width="109dp"
-        android:layout_height="59dp"
-        android:layout_marginBottom="188dp"
-        android:text="Start Game"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
         android:id="@+id/imageView"
+        android:contentDescription="Odd Color Game Logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/startGame"
+        android:layout_marginTop="150dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/game_logo" />
+
+    <ImageButton
+        android:id="@+id/play_button"
+        android:contentDescription="Start Game/Play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/ocg_play_button" />
+
+    <ImageButton
+        android:id="@+id/options_button"
+        android:contentDescription="Options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="125dp"
+        android:layout_marginBottom="100dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/play_button"
+        app:srcCompat="@drawable/ocg_options_button" />
+
+    <ImageButton
+        android:id="@+id/lb_button"
+        android:contentDescription="Leaderboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="100dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/play_button"
+        app:srcCompat="@drawable/ocg_lb_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
