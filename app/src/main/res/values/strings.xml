@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">OddColorGame</string>
+    <string name="game_difficulty">Difficulty: </string>
+    <string name="game_score">Score: </string>
+    <string name="game_stage">Stage: </string>
+    <string name="game_right_wrong">Correct/Wrong</string>
 </resources>
