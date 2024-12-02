@@ -13,7 +13,7 @@ class SquareAdapter(var squares: List<Boolean>, private var difficulty: Difficul
     private var differentColor = ColorUtils.generateTargetColor(baseColor, targetDiff)
 
     private fun initializeColorsRange(score: Int): Float {
-        return (0.5f - (score / 10) * 0.05f).coerceAtLeast(0.05f) //change min to .1f or higher?, lower 10 for faster progression?
+        return (0.5f - (score / 6) * 0.05f).coerceAtLeast(0.05f) //change min to .1f or higher?, lower 10 for faster progression?
     }
 
     interface SquareClickListener {

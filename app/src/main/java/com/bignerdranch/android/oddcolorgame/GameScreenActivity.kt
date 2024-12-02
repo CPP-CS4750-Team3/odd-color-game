@@ -11,13 +11,17 @@ import com.bignerdranch.android.oddcolorgame.ColorUtils.generateTargetColor
 
 class GameScreenActivity : AppCompatActivity(), SquareAdapter.SquareClickListener {
     private lateinit var squareAdapter: SquareAdapter
-    private val gameDifficulty = Difficulty.MEDIUM
-    private val numOfSquares = gameDifficulty.rows * gameDifficulty.columns
+    private lateinit var gameDifficulty: Difficulty
+    private var numOfSquares = 6
     private var score = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+
+        val getDifficulty = intent.getStringExtra("DIFFICULTY") ?: "EASY"
+        gameDifficulty = Difficulty.valueOf(getDifficulty)
+        numOfSquares = gameDifficulty.rows * gameDifficulty.columns
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerViewGrid)
         recyclerView.layoutManager = GridLayoutManager(this, gameDifficulty.columns) // 4 columns in the grid

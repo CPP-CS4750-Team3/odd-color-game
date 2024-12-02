@@ -23,7 +23,8 @@ class MainActivity : AppCompatActivity() {
         //Start Screen -> Game
         val startGameButton = findViewById<ImageButton>(R.id.play_button)
         startGameButton.setOnClickListener {
-            val startToGame = Intent(this, GameScreen::class.java)
+            val startToGame = Intent(this, GameScreenActivity::class.java)
+            startToGame.putExtra("DIFFICULTY",Difficulty.MEDIUM.name)
             startActivity(startToGame)
         }
     }
