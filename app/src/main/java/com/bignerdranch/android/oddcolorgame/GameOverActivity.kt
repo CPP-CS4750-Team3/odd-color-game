@@ -11,7 +11,6 @@ class GameOverActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_over)
-
         val finalScore = intent.getIntExtra("finalScore", 0)
         val scoreTextView = findViewById<TextView>(R.id.finalScoreTextView)
         val nameEditText = findViewById<EditText>(R.id.nameEditText)
@@ -22,6 +21,16 @@ class GameOverActivity : AppCompatActivity() {
         saveButton.setOnClickListener {
             val playerName = nameEditText.text.toString()
             //place code to save to leaderboard.
+            finish()
+        }
+
+//        val newGameButton = findViewById<Button>(R.id.newGame)
+//        newGameButton.setOnClickListener {
+//            finish()
+//        }
+
+        val goHomeButton = findViewById<Button>(R.id.goHome)
+        goHomeButton.setOnClickListener {
             finish()
         }
     }

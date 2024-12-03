@@ -27,5 +27,10 @@ class MainActivity : AppCompatActivity() {
             startToGame.putExtra("DIFFICULTY",Difficulty.MEDIUM.name)
             startActivity(startToGame)
         }
+
+        val leaderBoardButton = findViewById<ImageButton>(R.id.lb_button)
+        leaderBoardButton.setOnClickListener{
+
+        }
     }
 }

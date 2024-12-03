@@ -32,6 +32,20 @@
             android:layout_height="wrap_content"
             android:text="Save Score"
             android:layout_marginTop="16dp" />
+
+<!--        <Button-->
+<!--            android:id="@+id/newGame"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Play again"-->
+<!--            android:layout_marginTop="16dp" />-->
+
+        <Button
+            android:id="@+id/goHome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Main Menu"
+            android:layout_marginTop="16dp" />
     </LinearLayout>
 
 

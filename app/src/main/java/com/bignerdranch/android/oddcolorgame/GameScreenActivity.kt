@@ -1,5 +1,6 @@
 package com.bignerdranch.android.oddcolorgame
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -42,7 +43,14 @@ class GameScreenActivity : AppCompatActivity(), SquareAdapter.SquareClickListene
 
     override fun onSquareClick(position: Int) {
         val clickedSquareIsDifferent = squareAdapter.squares[position]
-        if (clickedSquareIsDifferent) { score++; updateScoreAndStage(); updateSquares() }
+        if (clickedSquareIsDifferent) {
+            score++; updateScoreAndStage(); updateSquares()
+        } else {
+            val startGameOverActivity = Intent(this, GameOverActivity::class.java)
+            startGameOverActivity.putExtra("finalScore", score)
+            startActivity(startGameOverActivity)
+            finish()
+        }
     }
 
     private fun updateSquares() {
