@@ -7,16 +7,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-private const val TAG = "LeaderboardActivity"
-
 class LeaderboardActivity : AppCompatActivity() {
 
     private lateinit var leaderboardViewModel: LeaderboardViewModel
     private lateinit var leaderboardAdapter: LeaderboardAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG,"Logging activity leaderboard created")
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_leaderboard)
 
@@ -26,10 +22,9 @@ class LeaderboardActivity : AppCompatActivity() {
         leaderboardAdapter = LeaderboardAdapter(mutableListOf())
         recyclerView.adapter = leaderboardAdapter
 
-        leaderboardViewModel = ViewModelProvider(this).get(LeaderboardViewModel::class.java)
+        leaderboardViewModel = ViewModelProvider(this)[LeaderboardViewModel::class.java]
 
         leaderboardViewModel.scores.observe(this) { scores ->
-            Log.d(TAG, "Scores observed: ${scores.size} items")
             leaderboardAdapter.updateScores(scores)
             //leaderboardAdapter = LeaderboardAdapter(scores)
             //recyclerView.adapter = leaderboardAdapter

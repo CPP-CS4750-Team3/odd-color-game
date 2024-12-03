@@ -8,7 +8,7 @@ import com.bignerdranch.android.oddcolorgame.Leaderboard
 
 @Dao
 interface LeaderboardDao {
-    @Query("SELECT * FROM leaderboard")
+    @Query("SELECT * FROM leaderboard ORDER BY score DESC")
     fun getScores(): List<Leaderboard>
 
     @Insert

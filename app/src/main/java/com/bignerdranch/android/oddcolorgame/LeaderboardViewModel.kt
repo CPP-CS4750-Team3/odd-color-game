@@ -18,10 +18,6 @@ import java.time.LocalDate
 import java.util.Date
 import java.util.UUID
 
-private const val DATABASE_NAME = "leaderboard-database.db"
-
-private const val TAG = "LeaderboardActivity"
-
 class LeaderboardViewModel(application: Application) : AndroidViewModel(application) {
     private val leaderboardDao: LeaderboardDao
     private val _scores = MutableLiveData<List<Leaderboard>>()
@@ -33,12 +29,7 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
             LeaderboardDatabase::class.java, "leaderboard-database"
         ).build()
         leaderboardDao = db.LeaderboardDao()
-        populateTestData()
         loadScores()
-//        scores = liveData {
-//            val leaderboardList = leaderboardDao.getScores()
-//            emit(leaderboardList)
-//        }
     }
 
     private fun loadScores() {
@@ -50,19 +41,10 @@ class LeaderboardViewModel(application: Application) : AndroidViewModel(applicat
         }
     }
 
-    private fun populateTestData() {
+    fun addScore(name: String, score: Int) {
+        val scoreInsert = Leaderboard(UUID.randomUUID(), name, score, Date())
         viewModelScope.launch(Dispatchers.IO) {
-            val sampleData = listOf(
-                Leaderboard(UUID.randomUUID(), "Alice", 900, Date()),
-                Leaderboard(UUID.randomUUID(), "Bob", 750, Date()),
-                Leaderboard(UUID.randomUUID(), "Charlie", 800, Date()),
-                Leaderboard(UUID.randomUUID(), "David", 670, Date()),
-                Leaderboard(UUID.randomUUID(), "Eve", 950, Date())
-            )
-            sampleData.forEach {
-                leaderboardDao.insertScore(it)
-            }
+            leaderboardDao.insertScore(scoreInsert)
         }
     }
-
 }
