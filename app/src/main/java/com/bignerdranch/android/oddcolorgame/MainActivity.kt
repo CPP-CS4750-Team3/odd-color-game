@@ -8,7 +8,9 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.constraintlayout.widget.ConstraintLayout
 
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,7 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         val leaderBoardButton = findViewById<ImageButton>(R.id.lb_button)
         leaderBoardButton.setOnClickListener{
-
+            val intent = Intent(this, LeaderboardActivity::class.java)
+            startActivity(intent)
         }
     }
 }
