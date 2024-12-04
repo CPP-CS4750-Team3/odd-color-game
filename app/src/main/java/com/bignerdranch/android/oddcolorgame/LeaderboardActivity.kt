@@ -2,7 +2,11 @@ package com.bignerdranch.android.oddcolorgame
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +15,7 @@ class LeaderboardActivity : AppCompatActivity() {
 
     private lateinit var leaderboardViewModel: LeaderboardViewModel
     private lateinit var leaderboardAdapter: LeaderboardAdapter
+    lateinit var difficulty: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +33,25 @@ class LeaderboardActivity : AppCompatActivity() {
             leaderboardAdapter.updateScores(scores)
             //leaderboardAdapter = LeaderboardAdapter(scores)
             //recyclerView.adapter = leaderboardAdapter
+        }
+
+        val difficultyButton = findViewById<Button>(R.id.Difficulty)
+        var title = findViewById<TextView>(R.id.leaderboardTitle)
+        difficultyButton.setOnClickListener {
+            val popupMenu = PopupMenu(this, difficultyButton)
+
+            popupMenu.menuInflater.inflate(R.menu.difficulty_popup_menu, popupMenu.menu)
+            popupMenu.setOnMenuItemClickListener { menuItem ->
+                findViewById<TextView>(R.id.leaderboardTitle).text = "Leaderboard - " + menuItem.title.toString()
+                true
+            }
+
+            popupMenu.show()
+        }
+
+        val goHomeButton = findViewById<Button>(R.id.goHome)
+        goHomeButton.setOnClickListener {
+            finish()
         }
     }
 }

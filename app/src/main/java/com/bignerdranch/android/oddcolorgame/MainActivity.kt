@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
             popupMenu.menuInflater.inflate(R.menu.difficulty_popup_menu, popupMenu.menu)
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 difficulty = menuItem.title.toString()
-                Toast.makeText(this@MainActivity, "Difficully Chosen: "
+                Toast.makeText(this@MainActivity, "Difficulty Chosen: "
                                 + menuItem.title, Toast.LENGTH_SHORT).show()
                 true
             }
