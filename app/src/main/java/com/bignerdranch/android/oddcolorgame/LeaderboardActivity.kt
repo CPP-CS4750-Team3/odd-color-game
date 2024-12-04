@@ -15,7 +15,7 @@ class LeaderboardActivity : AppCompatActivity() {
 
     private lateinit var leaderboardViewModel: LeaderboardViewModel
     private lateinit var leaderboardAdapter: LeaderboardAdapter
-    lateinit var difficulty: String
+    private var difficulty = "EASY"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +43,7 @@ class LeaderboardActivity : AppCompatActivity() {
             popupMenu.menuInflater.inflate(R.menu.difficulty_popup_menu, popupMenu.menu)
             popupMenu.setOnMenuItemClickListener { menuItem ->
                 findViewById<TextView>(R.id.leaderboardTitle).text = "Leaderboard - " + menuItem.title.toString()
+                loadScoresForLevel(menuItem.title.toString())
                 true
             }
 
@@ -52,6 +53,13 @@ class LeaderboardActivity : AppCompatActivity() {
         val goHomeButton = findViewById<Button>(R.id.goHome)
         goHomeButton.setOnClickListener {
             finish()
+        }
+
+        loadScoresForLevel("EASY")
+    }
+    private fun loadScoresForLevel(difficulty: String) {
+        leaderboardViewModel.loadScores(difficulty).observe(this) { scores ->
+            leaderboardAdapter.updateScores(scores)
         }
     }
 }

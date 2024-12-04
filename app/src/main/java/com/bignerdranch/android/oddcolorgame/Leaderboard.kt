@@ -9,5 +9,6 @@ data class Leaderboard(
     @PrimaryKey val id: UUID = UUID.randomUUID(),
     val name: String,
     val score: Int,
-    val date: Date
+    val date: Date,
+    val difficulty: String
 )

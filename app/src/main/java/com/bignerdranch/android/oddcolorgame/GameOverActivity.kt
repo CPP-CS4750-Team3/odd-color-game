@@ -18,6 +18,7 @@ class GameOverActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game_over)
         leaderboardViewModel = ViewModelProvider(this)[LeaderboardViewModel::class.java]
         val finalScore = intent.getIntExtra("finalScore", 0)
+        val difficulty = intent.getStringExtra("difficulty")?: "EASY"
         val scoreTextView = findViewById<TextView>(R.id.finalScoreTextView)
         val nameEditText = findViewById<EditText>(R.id.nameEditText)
         val saveButton = findViewById<Button>(R.id.saveButton)
@@ -28,7 +29,7 @@ class GameOverActivity : AppCompatActivity() {
             val playerName = nameEditText.text.toString()
 
             if (playerName.isNotBlank()) {
-                leaderboardViewModel.addScore(playerName, finalScore)
+                leaderboardViewModel.addScore(playerName, finalScore, difficulty)
                 Toast.makeText(this, "Score added to leaderboard!", Toast.LENGTH_SHORT).show()
                 finish()
             } else {

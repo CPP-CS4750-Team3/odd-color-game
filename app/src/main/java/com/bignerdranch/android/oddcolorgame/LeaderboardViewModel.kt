@@ -19,30 +19,22 @@ import java.util.Date
 import java.util.UUID
 
 class LeaderboardViewModel(application: Application) : AndroidViewModel(application) {
-    private val leaderboardDao: LeaderboardDao
+    private val leaderboardDao = LeaderboardDatabase.getDatabase(application).LeaderboardDao()
     private val _scores = MutableLiveData<List<Leaderboard>>()
     val scores: LiveData<List<Leaderboard>> get() = _scores
 
-    init {
-        val db = Room.databaseBuilder(
-            application,
-            LeaderboardDatabase::class.java, "leaderboard-database"
-        ).build()
-        leaderboardDao = db.LeaderboardDao()
-        loadScores()
-    }
-
-    private fun loadScores() {
+    fun loadScores(difficulty: String): LiveData<List<Leaderboard>> {
         viewModelScope.launch(Dispatchers.IO) {
-            val scoreList = leaderboardDao.getScores()
+            val scoreList = leaderboardDao.getScores(difficulty)
             withContext(Dispatchers.Main) {
                 _scores.value = scoreList
             }
         }
+        return _scores
     }
 
-    fun addScore(name: String, score: Int) {
-        val scoreInsert = Leaderboard(UUID.randomUUID(), name, score, Date())
+    fun addScore(name: String, score: Int, difficulty: String) {
+        val scoreInsert = Leaderboard(UUID.randomUUID(), name, score, Date(), difficulty)
         viewModelScope.launch(Dispatchers.IO) {
             leaderboardDao.insertScore(scoreInsert)
         }

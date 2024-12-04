@@ -48,6 +48,7 @@ class GameScreenActivity : AppCompatActivity(), SquareAdapter.SquareClickListene
         } else {
             val startGameOverActivity = Intent(this, GameOverActivity::class.java)
             startGameOverActivity.putExtra("finalScore", score)
+            startGameOverActivity.putExtra("difficulty", gameDifficulty.name)
             startActivity(startGameOverActivity)
             finish()
         }
