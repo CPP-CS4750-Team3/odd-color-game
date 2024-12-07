@@ -3,6 +3,7 @@ package com.bignerdranch.android.oddcolorgame
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -35,7 +36,7 @@ class LeaderboardActivity : AppCompatActivity() {
             //recyclerView.adapter = leaderboardAdapter
         }
 
-        val difficultyButton = findViewById<Button>(R.id.Difficulty)
+        val difficultyButton = findViewById<ImageButton>(R.id.Difficulty)
         var title = findViewById<TextView>(R.id.leaderboardTitle)
         difficultyButton.setOnClickListener {
             val popupMenu = PopupMenu(this, difficultyButton)
@@ -50,7 +51,7 @@ class LeaderboardActivity : AppCompatActivity() {
             popupMenu.show()
         }
 
-        val goHomeButton = findViewById<Button>(R.id.goHome)
+        val goHomeButton = findViewById<ImageButton>(R.id.goHome)
         goHomeButton.setOnClickListener {
             finish()
         }

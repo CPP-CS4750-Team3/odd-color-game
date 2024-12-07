@@ -1,37 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp"
         android:gravity="center">
 
+        <ImageView
+            android:id="@+id/gameover_text"
+            android:contentDescription="Game over text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            app:srcCompat="@drawable/ocg_gameover_text" />
+
         <TextView
             android:id="@+id/finalScoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="Your Score: 0"
-            android:textSize="24sp"
-            android:gravity="center" />
+            android:fontFamily="@font/shanty_house_font"
+            android:layout_marginTop="16dp"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Enter your name"
+            android:fontFamily="@font/shanty_house_font"
             android:layout_marginTop="16dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save Score"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:contentDescription="Save Score"
+            app:srcCompat="@drawable/ocg_save_button" />
 
 <!--        <Button-->
 <!--            android:id="@+id/newGame"-->
@@ -40,12 +53,15 @@
 <!--            android:text="Play again"-->
 <!--            android:layout_marginTop="16dp" />-->
 
-        <Button
+        <ImageButton
             android:id="@+id/goHome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Main Menu"
+            app:srcCompat="@drawable/ocg_home_button"
+            android:background="@null"
+            android:contentDescription="Go back to home screen"
             android:layout_marginTop="16dp" />
+
     </LinearLayout>
 
 

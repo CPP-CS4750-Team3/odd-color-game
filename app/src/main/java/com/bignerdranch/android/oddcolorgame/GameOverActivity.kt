@@ -3,6 +3,7 @@ package com.bignerdranch.android.oddcolorgame
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -21,7 +22,7 @@ class GameOverActivity : AppCompatActivity() {
         val difficulty = intent.getStringExtra("difficulty")?: "EASY"
         val scoreTextView = findViewById<TextView>(R.id.finalScoreTextView)
         val nameEditText = findViewById<EditText>(R.id.nameEditText)
-        val saveButton = findViewById<Button>(R.id.saveButton)
+        val saveButton = findViewById<ImageButton>(R.id.saveButton)
 
         scoreTextView.text = "Score: $finalScore"
 
@@ -42,7 +43,7 @@ class GameOverActivity : AppCompatActivity() {
 //            finish()
 //        }
 
-        val goHomeButton = findViewById<Button>(R.id.goHome)
+        val goHomeButton = findViewById<ImageButton>(R.id.goHome)
         goHomeButton.setOnClickListener {
             finish()
         }
